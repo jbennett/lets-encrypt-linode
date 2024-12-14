@@ -13,6 +13,7 @@ RUN echo "**** install OpenSSL ****" && \
     if [ ! -e /usr/bin/python ]; then ln -sf python3 /usr/bin/python ; fi && \
     \
     echo "**** install pip ****" && \
+    rm /usr/lib/python*/EXTERNALLY-MANAGED && \
     python3 -m ensurepip && \
     rm -r /usr/lib/python*/ensurepip && \
     pip3 install --no-cache --upgrade pip setuptools wheel && \
