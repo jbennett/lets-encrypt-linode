@@ -35,7 +35,7 @@ fi;
 
 export NODEBALANCER_LABEL=`linode-cli nodebalancers view $NODEBALANCER_ID --text --no-headers --format label`
 
-if [-z "$NODEBALANCER_LABEL" ];
+if [ -z "$NODEBALANCER_LABEL" ];
 then
     echo Bad NODEBALANCER_ID $NODEBALANCER_ID
     exit 1
@@ -107,7 +107,7 @@ $ACME --config-home /data \
       --reloadcmd "/install_cert.sh" \
       --pre-hook "rm $OK_FILE || true" \
       $NOTIFY_HOOK \
-      --cert-file /data/cert.pem \
+      --fullchain-file /data/cert.pem \
       --key-file /data/key.pem \
       --force
 
