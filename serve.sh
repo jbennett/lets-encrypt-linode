@@ -100,6 +100,11 @@ fi;
 # Start the web server in the background
 nginx
 
+$ACME --config-home /data \
+    --register-account -m $EMAIL_ADDRESS --server zerossl
+$ACME --config-home /data \
+    --set-default-ca  --server zerossl
+
 # Run the cert for the given domain using nginx
 $ACME --config-home /data \
       --issue -d $DOMAIN_NAME \
