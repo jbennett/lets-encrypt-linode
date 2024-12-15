@@ -10,6 +10,13 @@ then
     exit 1
 fi;
 
+# If we don't have an EMAIL_ADDRESS set, complain and exit
+if [ -z "$EMAIL_ADDRESS" ];
+then
+    echo "Error: EMAIL_ADDRESS variable not set."
+    exit 1
+fi;
+
 # If we don't have a LINODE_CLI_TOKEN set, complain and exit
 if [ -z "$LINODE_CLI_TOKEN" ];
 then
@@ -100,8 +107,11 @@ fi;
 # Start the web server in the background
 nginx
 
+# register email address
 $ACME --config-home /data \
     --register-account -m $EMAIL_ADDRESS --server zerossl
+
+# use zerossl by default
 $ACME --config-home /data \
     --set-default-ca  --server zerossl
 

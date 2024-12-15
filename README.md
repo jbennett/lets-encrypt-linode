@@ -168,6 +168,7 @@ When this Docker image is updated and you want to start using it, or if you want
 ## Required Variables
 
  * DOMAIN_NAME
+ * EMAIL_ADDRESS
  * LINODE_CLI_TOKEN
  * NODEBALANCER_ID
  * CONFIG_ID
